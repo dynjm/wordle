@@ -21,7 +21,7 @@ class Wordle(toga.App):
         wordle_hbox.add(toga.Label("", style=Pack(flex=1)))
         for letter in ['W', 'O', 'R', 'D', 'L', 'E']:
             letter_box = toga.Box(style=Pack(padding=5, background_color='gray'))
-            letter_box.add(toga.Button(letter, style=Pack(height=100, width=100, font_size=25)))
+            letter_box.add(toga.Button(letter, style=Pack(height=100, width=100, font_size=25, color='orange')))
             wordle_hbox.add(letter_box)
         wordle_hbox.add(toga.Label("", style=Pack(flex=1)))
         wordle_vbox.add(toga.Label("", style=Pack(flex=1)))
@@ -31,6 +31,7 @@ class Wordle(toga.App):
         # game mode buttons section
         classic_view = toga.Button('Classic', on_press=self.classic, style=Pack(padding=2, flex=1.5))
         timed_view = toga.Button('Timed', style=Pack(padding=2, flex=1.5))
+        multiplayer_view = toga.Button('Multiplayer', style=Pack(padding=2, flex=1.5))
         
         # game mode boxes section
         classic_box = toga.Box(style=Pack(direction=ROW))
@@ -42,6 +43,26 @@ class Wordle(toga.App):
         timed_box.add(toga.Label("", style=Pack(flex=1)))
         timed_box.add(timed_view)
         timed_box.add(toga.Label("", style=Pack(flex=1)))
+        
+        multiplayer_box = toga.Box(style=Pack(direction=ROW))
+        multiplayer_box.add(toga.Label("", style=Pack(flex=1)))
+        multiplayer_box.add(multiplayer_view)
+        multiplayer_box.add(toga.Label("", style=Pack(flex=1)))
+        
+        game_modes_box = toga.Box(style=Pack(direction=COLUMN))
+        game_modes_box.add(toga.Label("", style=Pack(flex=1)))
+        game_modes_box.add(classic_box)
+        game_modes_box.add(timed_box)
+        game_modes_box.add(multiplayer_box)
+        game_modes_box.add(toga.Label("", style=Pack(flex=1)))
+        
+        # about section
+        about_view = toga.Button('About', style=Pack(padding=2, flex=1.5))
+        about_box = toga.Box(style=Pack(direction=ROW))
+        about_box.add(toga.Label("", style=Pack(flex=1)))
+        about_box.add(about_view)
+        about_box.add(toga.Label("", style=Pack(flex=1)))
+        
         # CONTINUE MAIN MENU
         
         
@@ -49,8 +70,8 @@ class Wordle(toga.App):
         
         
         self.startup_box.add(wordle_vbox)
-        self.startup_box.add(classic_box)
-        self.startup_box.add(timed_box)
+        self.startup_box.add(game_modes_box)
+        self.startup_box.add(about_box)
         
         self.main_window = toga.MainWindow(title=self.formal_name)
         self.main_window.content = self.startup_box
