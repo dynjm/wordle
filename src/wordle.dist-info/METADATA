@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Briefcase-Version: 0.3.8
+Name: wordle
+Formal-Name: Wordle
+App-ID: personal.martirez.derrynjoi.wordle
+Version: 0.0.1
+Home-page: https://derrynjoi.martirez.personal/wordle
+Author: Derryn Joi Martirez
+Author-email: derrynjm@gmail.com
+Summary: Application based on the game Wordle
